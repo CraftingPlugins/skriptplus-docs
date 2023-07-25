@@ -63,7 +63,7 @@ const config = {
         title: "Fairy Framework",
         logo: {
           alt: "Fairy Logo",
-          src: "img/logo.svg",
+          src: "img/fairy.png",
         },
         items: [
           {
@@ -128,6 +128,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['java'],
       },
     }),
 };

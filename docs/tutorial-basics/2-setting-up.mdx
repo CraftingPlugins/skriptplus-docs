@@ -1,0 +1,106 @@
+---
+sidebar_label: 'Setting Up'
+sidebar_position: 1
+---
+
+# Lets set up!
+
+import ReactPlayer from 'react-player'
+
+Before starting up your new project with fairy, some prepare work is needed.
+
+# A. Using the template 
+
+Fairy Framework provides a baseline template with various basic utilities, including:
+- A module manager which will load any additional modules into the game
+- A basic command
+- A basic main class
+
+
+To create using the template, please visit [the template by clicking here](https://github.com/FairyProject/fairy-bukkit-module-template)
+
+<ReactPlayer playing controls url='../../video/setting-up.mp4' />
+
+By following the tutorial you should be able to speed-run the setting up process.
+
+# B. Setting up manually
+
+For the ones that are not faint of heart, my congratulations, and my sorry's. To set up fairy, you first
+need to add the Imanity Repository as part of your `settings.gradle`:
+
+```java
+pluginManagement {
+    repositories {
+        // These should be by default
+        gradlePluginPortal()
+        mavenCentral()
+
+        // -- Add this -- 
+        maven {
+            url "https://repo.imanity.dev/imanity-libraries"
+        }
+        // -------------- 
+    }
+}
+```
+
+As the next step, you must declare the plugin:
+
+```java
+plugins {
+    // Fairy needs ShadowJar to function
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'io.fairyproject' version '0.6.6b3-SNAPSHOT'
+}
+```
+
+Then, in the same `build.gradle`, you must set up the Fairy Project plugin:
+
+```java
+fairy {
+    // This is your main package that WILL be scanned
+    mainPackage.set("my.test.plugin")
+
+    // Optional: adds bukkit api notice for 1.13
+    bukkitProperties().bukkitApi = "1.13"
+}
+
+build {
+    dependsOn(shadowJar)
+}
+```
+
+#### Adding libraries
+
+To add libraries from fairy, it is as simple as adding regular libraries:
+
+```java
+dependencies {
+    api("io.fairyproject:bukkit-bundles")
+    api("io.fairyproject:module.animation")
+    api("io.fairyproject:bukkit-command")
+    api("io.fairyproject:bukkit-menu")
+    api("io.fairyproject:module.hologram")
+    api("io.fairyproject:module.config")
+    api("io.fairyproject:module.nametag")
+    api("io.fairyproject:module.sidebar")
+    api("io.fairyproject:bukkit-visibility")
+    api("io.fairyproject:bukkit-visual")
+    api("io.fairyproject:bukkit-timer")
+    api("io.fairyproject:bukkit-nbt")
+    api("io.fairyproject:module.tablist")
+}
+```
+
+There is no need to version these as they are versioned in regards to the plugin version.
+
+#### Recommended: Relocating
+
+It is **HIGHLY** recommended to relocate your Fairy Framework to prevent conflicts. Do so by 
+adding the following task:
+
+```java
+shadowJar {
+    relocate("io.fairyproject", "my.test.plugin.fairy")
+}
+```

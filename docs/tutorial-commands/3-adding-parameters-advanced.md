@@ -66,6 +66,8 @@ If you've previously missed the last tutorial on the basics of commands, we high
 
 ## The wrong way 💩
 
+![Baaad](https://i.imgflip.com/7toa9a.jpg)
+
 ```java 
 @InjectableComponent
 @Command(value = "finduser", permissionNode = "fairy.test")

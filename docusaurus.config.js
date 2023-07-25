@@ -60,9 +60,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: "Fairy Framework",
         logo: {
-          alt: "My Site Logo",
+          alt: "Fairy Logo",
           src: "img/logo.svg",
         },
         items: [
@@ -123,7 +123,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} FairyProject, Inc. Built with love by LeeGod.`,
       },
       prism: {
         theme: lightCodeTheme,

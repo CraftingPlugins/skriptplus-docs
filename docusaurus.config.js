@@ -4,8 +4,8 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
-const organizationName = "FairyProject";
-const projectName = "docs";
+const organizationName = "CraftingPlugins";
+const projectName = "skriptplus-docs";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
